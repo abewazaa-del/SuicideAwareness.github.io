@@ -14,7 +14,7 @@ This project means a lot to me. It's also part of how I've been teaching myself 
 ## What's on the page
 
 - **Breathing exercise** — an animated circle that guides psychological way to relax: inhale / hold / exhale, with a running count of completed cycles
-- **A bubble game** - A psychological game: Find 5, 4, 3, and 2 things that you can see, touch, hear, and smell, and one thing you’re grateful to yourself for today.
+- **A bubble game** - Just pop a bubbles and chill :>
 - **A supportive message** — a short reminder that the visitor isn't alone and their feelings are valid
 - **Crisis lines by country** — free, confidential helplines for ~19 European countries, plus 112 and a fallback for countries not listed
 - **Closing quotes** — short reflections on the value of life
