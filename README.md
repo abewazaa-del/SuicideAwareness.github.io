@@ -1,7 +1,9 @@
 [README (2).md](https://github.com/user-attachments/files/31019753/README.2.md)
-# SuicideAwareness.github.io# You Are Not Alone
+# You Are Not Alone
 
-A single-page support site: a guided breathing exercise, a short reminder that you're not alone, crisis lines for major European countries, and a few closing thoughts on the value of life.
+A single-page support site: a guided breathing exercise, a short reminder that you're not alone, crisis lines for major European countries, and a few closing thoughts on the value of life. 
+
+P.S - This work means a lot to me, and I really hope that at least one person will be inspired by seeing it.
 
 🔗 **Live site:** https://abewazaa-del.github.io/SuicideAwareness.github.io/
 
