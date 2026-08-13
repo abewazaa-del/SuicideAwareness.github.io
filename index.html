@@ -340,104 +340,6 @@
 
   .eyebrow-row{display:flex;align-items:center;gap:8px;}
 
-  /* ---------- Grounding exercise ---------- */
-  .ground{
-    background:var(--bg-deep);
-  }
-  .ground .wrap{max-width:640px;text-align:center;}
-  .ground .eyebrow{justify-content:center;}
-  .ground h2{font-size:clamp(24px,3.4vw,32px);}
-  .ground > .wrap > p{
-    color:var(--text-muted);
-    font-size:16px;
-    max-width:480px;
-    margin:0 auto 40px;
-  }
-  .ground-card{
-    background:var(--bg-mid2);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:36px 32px;
-    text-align:left;
-  }
-  .ground-progress{
-    display:flex;
-    justify-content:center;
-    gap:8px;
-    margin-bottom:24px;
-  }
-  .ground-progress .dot{
-    width:8px;height:8px;border-radius:50%;
-    background:var(--line);
-    transition:background .3s ease, transform .3s ease;
-  }
-  .ground-progress .dot.active{background:var(--accent-dawn);transform:scale(1.2);}
-  .ground-progress .dot.done{background:var(--accent-soft);}
-  .ground-step-label{
-    font-size:12.5px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color:var(--accent-soft);
-    text-align:center;
-    margin-bottom:14px;
-  }
-  .ground-prompt{
-    font-family:'Fraunces', serif;
-    font-size:21px;
-    line-height:1.4;
-    text-align:center;
-    margin:0 0 22px;
-    color:var(--text-light);
-  }
-  textarea.ground-input{
-    width:100%;
-    min-height:88px;
-    background:rgba(20,26,51,0.5);
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:14px 16px;
-    color:var(--text-light);
-    font-family:'Public Sans', sans-serif;
-    font-size:15px;
-    line-height:1.5;
-    resize:vertical;
-  }
-  textarea.ground-input::placeholder{color:var(--text-muted);opacity:.7;}
-  textarea.ground-input:focus-visible{outline:2px solid var(--accent-dawn);outline-offset:2px;}
-  .ground-hint{
-    font-size:12.5px;
-    color:var(--text-muted);
-    opacity:.75;
-    margin:10px 0 0;
-    text-align:center;
-  }
-  .ground-actions{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
-    margin-top:26px;
-  }
-  .ground-actions .spacer{flex:1;}
-  .ground-done{display:none;text-align:center;}
-  .ground-done .ground-check{
-    width:52px;height:52px;border-radius:50%;
-    background:rgba(242,166,90,0.15);
-    border:1px solid rgba(242,166,90,0.4);
-    display:flex;align-items:center;justify-content:center;
-    margin:0 auto 20px;
-    font-size:22px;
-    color:var(--accent-dawn);
-  }
-  .ground-done p{
-    font-family:'Fraunces', serif;
-    font-size:19px;
-    color:var(--text-light);
-    max-width:400px;
-    margin:0 auto 24px;
-    line-height:1.5;
-  }
-
   @media (max-width:760px){
     .support-grid{grid-template-columns:1fr;}
     .quote-grid{grid-template-columns:1fr;}
@@ -450,6 +352,183 @@
     html{scroll-behavior:auto;}
     .orb, .orb.inhale, .orb.exhale, .orb.hold{transition-duration:0.4s;}
     #stars{display:none;}
+  }
+
+  /* ---------- Scroll-reveal ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(26px);
+    transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  .reveal-stagger.visible > *{transition-delay:calc(var(--i, 0) * 90ms);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+
+  /* ---------- Hero entrance ---------- */
+  @keyframes floatIn{
+    from{opacity:0;transform:translateY(18px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .hero-inner .eyebrow,
+  .hero-inner h1,
+  .hero-inner p.lead,
+  .orb-stage{
+    animation:floatIn .9s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .hero-inner .eyebrow{animation-delay:.05s;}
+  .hero-inner h1{animation-delay:.15s;}
+  .hero-inner p.lead{animation-delay:.28s;}
+  .orb-stage{animation-delay:.42s;}
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-inner .eyebrow, .hero-inner h1, .hero-inner p.lead, .orb-stage{animation:none;}
+  }
+
+  /* ---------- Scroll cue bounce ---------- */
+  @keyframes bounceCue{
+    0%,100%{transform:translate(-50%,0);opacity:.7;}
+    50%{transform:translate(-50%,6px);opacity:1;}
+  }
+  .scroll-cue{animation:bounceCue 2.4s ease-in-out infinite;}
+
+  /* ---------- Orb ring drift ---------- */
+  @keyframes ringSpin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+  }
+  .orb-ring.r2{
+    background:
+      radial-gradient(circle at 12% 50%, rgba(242,166,90,0.5) 0 3px, transparent 4px);
+    animation:ringSpin 22s linear infinite;
+  }
+
+  /* ---------- Cycle count pop ---------- */
+  @keyframes countPop{
+    0%{transform:scale(1);}
+    30%{transform:scale(1.25);color:var(--accent-dawn);}
+    100%{transform:scale(1);}
+  }
+  .cycle-count.pop{animation:countPop .4s ease;}
+
+  /* ---------- Button ripple ---------- */
+  button.primary-btn, button.ghost-btn{position:relative;overflow:hidden;}
+  .ripple{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.45);
+    transform:scale(0);
+    animation:rippleAnim .6s ease-out forwards;
+    pointer-events:none;
+  }
+  button.ghost-btn .ripple{background:rgba(147,168,221,0.35);}
+  @keyframes rippleAnim{
+    to{transform:scale(2.6);opacity:0;}
+  }
+
+  /* ---------- Card hover lift ---------- */
+  .support-card, .country-card{
+    transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease;
+  }
+  .support-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(242,166,90,0.35);
+    box-shadow:0 14px 34px -16px rgba(242,166,90,0.35);
+  }
+  .country-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(147,168,221,0.4);
+    box-shadow:0 14px 30px -16px rgba(20,26,51,0.6);
+  }
+  .quote-card{transition:transform .35s ease;}
+  .quote-card:hover{transform:translateX(4px);}
+
+  /* ---------- Mini game: Worry Bubbles ---------- */
+  .game{
+    background:var(--bg-mid2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .game .wrap{max-width:760px;text-align:center;}
+  .game h2{font-size:clamp(26px,3.6vw,36px);}
+  .game p.lead-text{color:var(--text-muted);font-size:16px;max-width:520px;margin:0 auto 8px;}
+  .game-stage{
+    position:relative;
+    height:340px;
+    margin-top:36px;
+    border-radius:var(--radius);
+    background:linear-gradient(180deg, rgba(31,39,72,0.5), rgba(20,26,51,0.7));
+    border:1px solid var(--line);
+    overflow:hidden;
+  }
+  .bubble{
+    position:absolute;
+    bottom:-60px;
+    border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, rgba(255,255,255,0.5), var(--accent-soft) 40%, rgba(147,168,221,0.15) 100%);
+    border:1px solid rgba(255,255,255,0.35);
+    cursor:pointer;
+    animation-name:bubbleFloat;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+  }
+  .bubble:hover{filter:brightness(1.15);}
+  @keyframes bubbleFloat{
+    from{transform:translateY(0) translateX(0);opacity:.9;}
+    to{transform:translateY(-380px) translateX(var(--drift, 0px));opacity:0;}
+  }
+  .bubble.popping{
+    animation:none !important;
+    transform:scale(1.6) !important;
+    opacity:0 !important;
+    transition:transform .35s ease, opacity .35s ease;
+  }
+  .bubble-msg{
+    position:absolute;
+    transform:translate(-50%,-100%);
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--text-light);
+    background:rgba(20,26,51,0.92);
+    border:1px solid var(--line);
+    padding:6px 12px;
+    border-radius:999px;
+    white-space:nowrap;
+    pointer-events:none;
+    animation:msgFade 1.8s ease forwards;
+  }
+  @keyframes msgFade{
+    0%{opacity:0;transform:translate(-50%,-90%);}
+    15%{opacity:1;transform:translate(-50%,-110%);}
+    80%{opacity:1;}
+    100%{opacity:0;transform:translate(-50%,-130%);}
+  }
+  .game-controls{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:22px;
+  }
+  .game-count{font-size:13px;color:var(--text-muted);}
+  .game-static{display:none;}
+  .game-static .static-phrase{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:19px;
+    color:var(--text-light);
+    min-height:2.6em;
+    max-width:440px;
+    margin:0 auto 18px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .game-stage{display:none;}
+    .game-static{display:block;}
   }
 </style>
 </head>
@@ -488,23 +567,23 @@
 
 <section class="support">
   <div class="wrap">
-    <div class="eyebrow eyebrow-row" style="justify-content:center;">Before you go on</div>
-    <h2>You are not alone</h2>
-    <p>Whatever brought you here — exhaustion, pain, a feeling of being stuck, or just a hard day — it doesn't mean something is wrong with you. It means things are hard right now. And <strong>you don't have to get through this by yourself</strong>.</p>
-    <p>People who feel exactly what you feel right now exist all over the world. Many of them, some time later, have said they were glad they stayed. Your story isn't finished yet.</p>
+    <div class="eyebrow eyebrow-row reveal" style="justify-content:center;">Before you go on</div>
+    <h2 class="reveal">You are not alone</h2>
+    <p class="reveal">Whatever brought you here — exhaustion, pain, a feeling of being stuck, or just a hard day — it doesn't mean something is wrong with you. It means things are hard right now. And <strong>you don't have to get through this by yourself</strong>.</p>
+    <p class="reveal">People who feel exactly what you feel right now exist all over the world. Many of them, some time later, have said they were glad they stayed. Your story isn't finished yet.</p>
 
     <div class="support-grid">
-      <div class="support-card">
+      <div class="support-card reveal">
         <span class="num">01</span>
         <h3>Your feelings are real</h3>
         <p>The pain you're feeling isn't made up or exaggerated. It deserves attention — yours and other people's.</p>
       </div>
-      <div class="support-card">
+      <div class="support-card reveal">
         <span class="num">02</span>
         <h3>You are not a burden</h3>
         <p>Asking for help isn't weakness, and it isn't a weight on others. It's exactly what the people around you are there for.</p>
       </div>
-      <div class="support-card">
+      <div class="support-card reveal">
         <span class="num">03</span>
         <h3>Right now isn't forever</h3>
         <p>The state you're in today can change. Sometimes it only takes one conversation to start.</p>
@@ -513,52 +592,41 @@
   </div>
 </section>
 
-<section class="ground" id="ground">
+<section class="game">
   <div class="wrap">
-    <div class="eyebrow">Another way to slow down</div>
-    <h2>The 5 senses exercise</h2>
-    <p>The 5-4-3-2-1 technique gently brings your attention back to the present moment when your thoughts feel like too much. You don't have to write anything — just notice, then tap "Next".</p>
+    <div class="eyebrow reveal" style="justify-content:center;">If you'd like a small distraction</div>
+    <h2 class="reveal">Worry bubbles</h2>
+    <p class="lead-text reveal">Pop a few bubbles as they drift by. Some worries are lighter than they feel once you let them go.</p>
 
-    <div class="ground-card">
-      <div class="ground-progress" id="groundProgress"></div>
+    <div class="game-stage reveal" id="gameStage" aria-label="Bubble popping game"></div>
 
-      <div id="groundSteps">
-        <div class="ground-step-label" id="groundStepLabel">Step 1 of 5</div>
-        <p class="ground-prompt" id="groundPrompt">Find 5 things you can see around you</p>
-        <textarea class="ground-input" id="groundInput" placeholder="Optional — you can just notice them instead" rows="3"></textarea>
-        <p class="ground-hint">Anything you type stays only in this tab — nothing is sent anywhere</p>
-        <div class="ground-actions">
-          <button class="ghost-btn" id="groundBack" style="visibility:hidden;">Back</button>
-          <span class="spacer"></span>
-          <button class="primary-btn" id="groundNext">Next</button>
-        </div>
-      </div>
+    <div class="game-static reveal" id="gameStatic">
+      <p class="static-phrase" id="staticPhrase">Press the button for a small, gentle thought.</p>
+    </div>
 
-      <div class="ground-done" id="groundDone">
-        <div class="ground-check">✓</div>
-        <p>Good. You've spent a moment back in the present — and you're not alone in it.</p>
-        <button class="ghost-btn" id="groundRestart">Do it again</button>
-      </div>
+    <div class="game-controls reveal">
+      <button class="primary-btn" id="gameToggle">Start popping</button>
+      <span class="game-count" id="gameCount"></span>
     </div>
   </div>
 </section>
 
 <section class="contacts" id="contacts">
   <div class="wrap">
-    <div class="contacts-head">
+    <div class="contacts-head reveal">
       <div class="eyebrow">Talk to a person</div>
       <h2>Support lines across Europe</h2>
       <p>These are free, confidential services. You don't have to be "in crisis" to call — you can just talk.</p>
     </div>
 
-    <div class="emergency-note">
+    <div class="emergency-note reveal">
       <span class="dot"></span>
       <p><strong>112</strong> is the single emergency number in every EU country and most of Europe. Call it if there's an immediate danger to life.</p>
     </div>
 
     <div class="country-grid">
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇩🇪 Germany</h3>
         <ul>
           <li>Telefonseelsorge: <a href="tel:08001110111">0800 111 0 111</a> / <a href="tel:08001110222">0800 111 0 222</a></li>
@@ -566,7 +634,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇫🇷 France</h3>
         <ul>
           <li>National line: <a href="tel:3114">3114</a></li>
@@ -574,7 +642,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇬🇧 United Kingdom</h3>
         <ul>
           <li>Samaritans: <a href="tel:116123">116 123</a></li>
@@ -583,7 +651,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇮🇪 Ireland</h3>
         <ul>
           <li>Samaritans: <a href="tel:116123">116 123</a></li>
@@ -592,7 +660,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇮🇹 Italy</h3>
         <ul>
           <li>Telefono Amico Cevita: <a href="tel:0299777">02 99777</a></li>
@@ -601,7 +669,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇪🇸 Spain</h3>
         <ul>
           <li>Línea 024: <a href="tel:024">024</a></li>
@@ -609,7 +677,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇵🇹 Portugal</h3>
         <ul>
           <li>SOS Voz Amiga: <a href="tel:213544545">213 544 545</a></li>
@@ -617,7 +685,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇳🇱 Netherlands</h3>
         <ul>
           <li>113 Zelfmoordpreventie: <a href="tel:113">113</a> / <a href="tel:08000113">0800 0113</a></li>
@@ -625,7 +693,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇧🇪 Belgium</h3>
         <ul>
           <li>Zelfmoordlijn (NL): <a href="tel:1813">1813</a></li>
@@ -634,7 +702,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇦🇹 Austria</h3>
         <ul>
           <li>Telefonseelsorge: <a href="tel:142">142</a></li>
@@ -642,7 +710,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇨🇭 Switzerland</h3>
         <ul>
           <li>Die Dargebotene Hand: <a href="tel:143">143</a></li>
@@ -650,7 +718,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇵🇱 Poland</h3>
         <ul>
           <li>116 123 line: <a href="tel:116123">116 123</a> (2pm–10pm)</li>
@@ -659,7 +727,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇨🇿 Czechia</h3>
         <ul>
           <li>116 123 line: <a href="tel:116123">116 123</a></li>
@@ -667,7 +735,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇸🇪 Sweden</h3>
         <ul>
           <li>Självmordslinjen: <a href="tel:90101">90101</a></li>
@@ -675,7 +743,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇳🇴 Norway</h3>
         <ul>
           <li>Mental Helse: <a href="tel:116123">116 123</a></li>
@@ -683,7 +751,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇩🇰 Denmark</h3>
         <ul>
           <li>Livslinien: <a href="tel:70201201">70 201 201</a></li>
@@ -691,7 +759,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇫🇮 Finland</h3>
         <ul>
           <li>MIELI (Finnish): <a href="tel:0925250111">09 2525 0111</a></li>
@@ -700,7 +768,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇬🇷 Greece</h3>
         <ul>
           <li>Line 1018: <a href="tel:1018">1018</a></li>
@@ -708,7 +776,7 @@
         </ul>
       </div>
 
-      <div class="country-card">
+      <div class="country-card reveal">
         <h3>🇱🇹 Lithuania</h3>
         <ul>
           <li>Vilties linija: <a href="tel:116123">116 123</a></li>
@@ -730,15 +798,15 @@
 
 <section class="quotes">
   <div class="wrap">
-    <div class="eyebrow">One last thing</div>
-    <h2>A few thoughts to take with you</h2>
+    <div class="eyebrow reveal">One last thing</div>
+    <h2 class="reveal">A few thoughts to take with you</h2>
     <div class="quote-grid">
-      <div class="quote-card"><p>Life doesn't have to be easy right now to still be worth living.</p></div>
-      <div class="quote-card"><p>Everyone who stayed was once needed by someone, even if they didn't know it yet.</p></div>
-      <div class="quote-card"><p>Pain changes shape. What feels unbearable today doesn't have to stay that way tomorrow.</p></div>
-      <div class="quote-card"><p>Asking for help isn't the end of the story — it's how the story continues.</p></div>
-      <div class="quote-card"><p>You don't have to see the whole road. Just the next step.</p></div>
-      <div class="quote-card"><p>Your presence in the world changes it, even when it doesn't feel that way.</p></div>
+      <div class="quote-card reveal"><p>Life doesn't have to be easy right now to still be worth living.</p></div>
+      <div class="quote-card reveal"><p>Everyone who stayed was once needed by someone, even if they didn't know it yet.</p></div>
+      <div class="quote-card reveal"><p>Pain changes shape. What feels unbearable today doesn't have to stay that way tomorrow.</p></div>
+      <div class="quote-card reveal"><p>Asking for help isn't the end of the story — it's how the story continues.</p></div>
+      <div class="quote-card reveal"><p>You don't have to see the whole road. Just the next step.</p></div>
+      <div class="quote-card reveal"><p>Your presence in the world changes it, even when it doesn't feel that way.</p></div>
     </div>
   </div>
 </section>
@@ -856,88 +924,152 @@
 
   startBtn.addEventListener('click', start);
   stopBtn.addEventListener('click', stop);
+
+  // little pop on the cycle counter whenever it updates
+  const observer = new MutationObserver(() => {
+    cycleCountEl.classList.remove('pop');
+    void cycleCountEl.offsetWidth;
+    cycleCountEl.classList.add('pop');
+  });
+  observer.observe(cycleCountEl, { childList: true, characterData: true, subtree: true });
 })();
 
-/* ---------- 5-4-3-2-1 grounding exercise ---------- */
+/* ---------- Scroll reveal ---------- */
 (function(){
-  const steps = [
-    { prompt: 'Find 5 things you can see around you',        placeholder: 'e.g. a lamp, a mug, a window…' },
-    { prompt: 'Notice 4 things you can touch',                placeholder: 'e.g. the fabric of your clothes, a desk…' },
-    { prompt: 'Listen for 3 sounds around you',                placeholder: 'e.g. traffic outside, your breathing, silence…' },
-    { prompt: 'Think of 2 smells you like',                    placeholder: "You don't have to smell them right now" },
-    { prompt: "Name 1 thing you're grateful to yourself for today", placeholder: 'Even a small one counts' },
+  const items = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    items.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  items.forEach(el => io.observe(el));
+})();
+
+/* ---------- Button ripple ---------- */
+(function(){
+  document.querySelectorAll('button.primary-btn, button.ghost-btn').forEach(btn => {
+    btn.addEventListener('click', function(e){
+      const rect = btn.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height) * 1.4;
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+      btn.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 650);
+    });
+  });
+})();
+
+/* ---------- Worry bubbles mini-game ---------- */
+(function(){
+  const stage = document.getElementById('gameStage');
+  const toggleBtn = document.getElementById('gameToggle');
+  const countEl = document.getElementById('gameCount');
+  const staticPhrase = document.getElementById('staticPhrase');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const phrases = [
+    'Lighter already.',
+    'That one can drift off.',
+    'Not everything needs solving tonight.',
+    'You can set that one down.',
+    'One less thing to carry.',
+    'It doesn\'t have to stay this size.',
+    'Let it float away for a moment.',
+    'You did enough today.',
+    'This feeling will move, too.',
+    'Small steps still count.',
+    'You\'re allowed to rest.',
+    'That thought can wait outside.'
   ];
 
-  const progressEl = document.getElementById('groundProgress');
-  const stepsEl = document.getElementById('groundSteps');
-  const doneEl = document.getElementById('groundDone');
-  const labelEl = document.getElementById('groundStepLabel');
-  const promptEl = document.getElementById('groundPrompt');
-  const inputEl = document.getElementById('groundInput');
-  const backBtn = document.getElementById('groundBack');
-  const nextBtn = document.getElementById('groundNext');
-  const restartBtn = document.getElementById('groundRestart');
+  let popped = 0;
+  let running = false;
+  let spawnTimer = null;
 
-  let index = 0;
-  const answers = new Array(steps.length).fill('');
+  function randomBetween(min, max){ return Math.random() * (max - min) + min; }
 
-  // build progress dots
-  steps.forEach(() => {
-    const dot = document.createElement('span');
-    dot.className = 'dot';
-    progressEl.appendChild(dot);
-  });
-  const dots = Array.from(progressEl.children);
+  function spawnBubble(){
+    if(!running) return;
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble';
+    const size = randomBetween(34, 68);
+    const left = randomBetween(4, 92);
+    const duration = randomBetween(7, 12);
+    const drift = randomBetween(-40, 40);
+    bubble.style.width = bubble.style.height = size + 'px';
+    bubble.style.left = left + '%';
+    bubble.style.setProperty('--drift', drift + 'px');
+    bubble.style.animationDuration = duration + 's';
 
-  function render(){
-    const step = steps[index];
-    labelEl.textContent = `Step ${index + 1} of ${steps.length}`;
-    promptEl.textContent = step.prompt;
-    inputEl.placeholder = step.placeholder;
-    inputEl.value = answers[index];
-    backBtn.style.visibility = index === 0 ? 'hidden' : 'visible';
-    nextBtn.textContent = index === steps.length - 1 ? 'Done' : 'Next';
-
-    dots.forEach((d, i) => {
-      d.classList.toggle('active', i === index);
-      d.classList.toggle('done', i < index);
+    bubble.addEventListener('animationend', () => {
+      if(bubble.parentNode) bubble.remove();
     });
+
+    bubble.addEventListener('click', () => popBubble(bubble));
+
+    stage.appendChild(bubble);
+    spawnTimer = setTimeout(spawnBubble, randomBetween(700, 1400));
   }
 
-  function showDone(){
-    stepsEl.style.display = 'none';
-    doneEl.style.display = 'block';
+  function popBubble(bubble){
+    if(bubble.classList.contains('popping')) return;
+    const rect = bubble.getBoundingClientRect();
+    const stageRect = stage.getBoundingClientRect();
+    bubble.classList.add('popping');
+
+    const msg = document.createElement('div');
+    msg.className = 'bubble-msg';
+    msg.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+    msg.style.left = (rect.left - stageRect.left + rect.width/2) + 'px';
+    msg.style.top = (rect.top - stageRect.top) + 'px';
+    stage.appendChild(msg);
+
+    setTimeout(() => bubble.remove(), 400);
+    setTimeout(() => msg.remove(), 1900);
+
+    popped += 1;
+    countEl.textContent = popped === 1 ? '1 bubble popped' : popped + ' bubbles popped';
   }
 
-  function reset(){
-    index = 0;
-    answers.fill('');
-    stepsEl.style.display = 'block';
-    doneEl.style.display = 'none';
-    render();
+  function startGame(){
+    running = true;
+    toggleBtn.textContent = 'Stop';
+    spawnBubble();
   }
 
-  nextBtn.addEventListener('click', () => {
-    answers[index] = inputEl.value;
-    if(index === steps.length - 1){
-      showDone();
-    } else {
-      index += 1;
-      render();
+  function stopGame(){
+    running = false;
+    clearTimeout(spawnTimer);
+    toggleBtn.textContent = 'Start popping';
+  }
+
+  function showStaticPhrase(){
+    staticPhrase.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+    popped += 1;
+    countEl.textContent = popped === 1 ? '1 thought so far' : popped + ' thoughts so far';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    if(reduceMotion){
+      showStaticPhrase();
+      return;
     }
+    if(running){ stopGame(); } else { startGame(); }
   });
 
-  backBtn.addEventListener('click', () => {
-    answers[index] = inputEl.value;
-    if(index > 0){
-      index -= 1;
-      render();
-    }
-  });
-
-  restartBtn.addEventListener('click', reset);
-
-  render();
+  if(reduceMotion){
+    toggleBtn.textContent = 'Show me a thought';
+  }
 })();
 </script>
 
