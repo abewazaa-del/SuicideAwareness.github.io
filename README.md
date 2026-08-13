@@ -72,21 +72,6 @@ o me, and I really hope that at least one person will be inspired by seeing it.
 - **Crisis lines by country** — free, confidential helplines for ~19 European countries, plus 112 and a fallback for countries not listed
 - **Closing quotes** — short reflections on the value of life
 
-
-## Screenshots
-
-<!--
-Replace the placeholders below with your own screenshots:
-1. Open the live site.
-2. Take a screenshot of each section (Windows: Win+Shift+S, Mac: Cmd+Shift+4).
-3. Save the images into a folder named `screenshots/` in this repo (e.g. screenshots/hero.png).
-4. Update the paths below to match your file names.
--->
-
-| Breathing exercise | Support lines |
-|---|---|
-| ![Hero section with breathing circle](screenshots/hero.png) | ![Crisis lines by country](screenshots/contacts.png) |
-
 ## Tech
 
 Plain HTML, CSS and JavaScript — no build step, no dependencies. One file, drop it in any static host.
