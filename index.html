@@ -340,6 +340,104 @@
 
   .eyebrow-row{display:flex;align-items:center;gap:8px;}
 
+  /* ---------- Grounding exercise ---------- */
+  .ground{
+    background:var(--bg-deep);
+  }
+  .ground .wrap{max-width:640px;text-align:center;}
+  .ground .eyebrow{justify-content:center;}
+  .ground h2{font-size:clamp(24px,3.4vw,32px);}
+  .ground > .wrap > p{
+    color:var(--text-muted);
+    font-size:16px;
+    max-width:480px;
+    margin:0 auto 40px;
+  }
+  .ground-card{
+    background:var(--bg-mid2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:36px 32px;
+    text-align:left;
+  }
+  .ground-progress{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:24px;
+  }
+  .ground-progress .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--line);
+    transition:background .3s ease, transform .3s ease;
+  }
+  .ground-progress .dot.active{background:var(--accent-dawn);transform:scale(1.2);}
+  .ground-progress .dot.done{background:var(--accent-soft);}
+  .ground-step-label{
+    font-size:12.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--accent-soft);
+    text-align:center;
+    margin-bottom:14px;
+  }
+  .ground-prompt{
+    font-family:'Fraunces', serif;
+    font-size:21px;
+    line-height:1.4;
+    text-align:center;
+    margin:0 0 22px;
+    color:var(--text-light);
+  }
+  textarea.ground-input{
+    width:100%;
+    min-height:88px;
+    background:rgba(20,26,51,0.5);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+    color:var(--text-light);
+    font-family:'Public Sans', sans-serif;
+    font-size:15px;
+    line-height:1.5;
+    resize:vertical;
+  }
+  textarea.ground-input::placeholder{color:var(--text-muted);opacity:.7;}
+  textarea.ground-input:focus-visible{outline:2px solid var(--accent-dawn);outline-offset:2px;}
+  .ground-hint{
+    font-size:12.5px;
+    color:var(--text-muted);
+    opacity:.75;
+    margin:10px 0 0;
+    text-align:center;
+  }
+  .ground-actions{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-top:26px;
+  }
+  .ground-actions .spacer{flex:1;}
+  .ground-done{display:none;text-align:center;}
+  .ground-done .ground-check{
+    width:52px;height:52px;border-radius:50%;
+    background:rgba(242,166,90,0.15);
+    border:1px solid rgba(242,166,90,0.4);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 20px;
+    font-size:22px;
+    color:var(--accent-dawn);
+  }
+  .ground-done p{
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    color:var(--text-light);
+    max-width:400px;
+    margin:0 auto 24px;
+    line-height:1.5;
+  }
+
   @media (max-width:760px){
     .support-grid{grid-template-columns:1fr;}
     .quote-grid{grid-template-columns:1fr;}
@@ -410,6 +508,36 @@
         <span class="num">03</span>
         <h3>Right now isn't forever</h3>
         <p>The state you're in today can change. Sometimes it only takes one conversation to start.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ground" id="ground">
+  <div class="wrap">
+    <div class="eyebrow">Another way to slow down</div>
+    <h2>The 5 senses exercise</h2>
+    <p>The 5-4-3-2-1 technique gently brings your attention back to the present moment when your thoughts feel like too much. You don't have to write anything — just notice, then tap "Next".</p>
+
+    <div class="ground-card">
+      <div class="ground-progress" id="groundProgress"></div>
+
+      <div id="groundSteps">
+        <div class="ground-step-label" id="groundStepLabel">Step 1 of 5</div>
+        <p class="ground-prompt" id="groundPrompt">Find 5 things you can see around you</p>
+        <textarea class="ground-input" id="groundInput" placeholder="Optional — you can just notice them instead" rows="3"></textarea>
+        <p class="ground-hint">Anything you type stays only in this tab — nothing is sent anywhere</p>
+        <div class="ground-actions">
+          <button class="ghost-btn" id="groundBack" style="visibility:hidden;">Back</button>
+          <span class="spacer"></span>
+          <button class="primary-btn" id="groundNext">Next</button>
+        </div>
+      </div>
+
+      <div class="ground-done" id="groundDone">
+        <div class="ground-check">✓</div>
+        <p>Good. You've spent a moment back in the present — and you're not alone in it.</p>
+        <button class="ghost-btn" id="groundRestart">Do it again</button>
       </div>
     </div>
   </div>
@@ -728,6 +856,88 @@
 
   startBtn.addEventListener('click', start);
   stopBtn.addEventListener('click', stop);
+})();
+
+/* ---------- 5-4-3-2-1 grounding exercise ---------- */
+(function(){
+  const steps = [
+    { prompt: 'Find 5 things you can see around you',        placeholder: 'e.g. a lamp, a mug, a window…' },
+    { prompt: 'Notice 4 things you can touch',                placeholder: 'e.g. the fabric of your clothes, a desk…' },
+    { prompt: 'Listen for 3 sounds around you',                placeholder: 'e.g. traffic outside, your breathing, silence…' },
+    { prompt: 'Think of 2 smells you like',                    placeholder: "You don't have to smell them right now" },
+    { prompt: "Name 1 thing you're grateful to yourself for today", placeholder: 'Even a small one counts' },
+  ];
+
+  const progressEl = document.getElementById('groundProgress');
+  const stepsEl = document.getElementById('groundSteps');
+  const doneEl = document.getElementById('groundDone');
+  const labelEl = document.getElementById('groundStepLabel');
+  const promptEl = document.getElementById('groundPrompt');
+  const inputEl = document.getElementById('groundInput');
+  const backBtn = document.getElementById('groundBack');
+  const nextBtn = document.getElementById('groundNext');
+  const restartBtn = document.getElementById('groundRestart');
+
+  let index = 0;
+  const answers = new Array(steps.length).fill('');
+
+  // build progress dots
+  steps.forEach(() => {
+    const dot = document.createElement('span');
+    dot.className = 'dot';
+    progressEl.appendChild(dot);
+  });
+  const dots = Array.from(progressEl.children);
+
+  function render(){
+    const step = steps[index];
+    labelEl.textContent = `Step ${index + 1} of ${steps.length}`;
+    promptEl.textContent = step.prompt;
+    inputEl.placeholder = step.placeholder;
+    inputEl.value = answers[index];
+    backBtn.style.visibility = index === 0 ? 'hidden' : 'visible';
+    nextBtn.textContent = index === steps.length - 1 ? 'Done' : 'Next';
+
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', i === index);
+      d.classList.toggle('done', i < index);
+    });
+  }
+
+  function showDone(){
+    stepsEl.style.display = 'none';
+    doneEl.style.display = 'block';
+  }
+
+  function reset(){
+    index = 0;
+    answers.fill('');
+    stepsEl.style.display = 'block';
+    doneEl.style.display = 'none';
+    render();
+  }
+
+  nextBtn.addEventListener('click', () => {
+    answers[index] = inputEl.value;
+    if(index === steps.length - 1){
+      showDone();
+    } else {
+      index += 1;
+      render();
+    }
+  });
+
+  backBtn.addEventListener('click', () => {
+    answers[index] = inputEl.value;
+    if(index > 0){
+      index -= 1;
+      render();
+    }
+  });
+
+  restartBtn.addEventListener('click', reset);
+
+  render();
 })();
 </script>
 
