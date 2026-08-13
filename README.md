@@ -36,13 +36,13 @@ Replace the placeholders below with your own screenshots:
 |---|---|
 | ![Hero section with breathing circle](screenshots/v1/hero.png) | ![Crisis lines by country](screenshots/v1/contacts.png) |
 
-### Version 2 — editorial redesign
+### Version 2 — current
 
 | Breathing exercise | Support lines |
 |---|---|
 | ![Hero section with breathing circle](screenshots/v2/hero.png) | ![Crisis lines by country](screenshots/v2/contacts.png) |
 
-### Version 3 — current
+### Version 3 — editorial redesign
 
 | Breathing exercise | Support lines |
 |---|---|
