@@ -1,7 +1,6 @@
 # You Are Not Alone
 
 ## A single-page support site: a guided breathing exercise, a short reminder that you're not alone, crisis lines for major European countries, and a few closing thoughts on the value of life. 
-P.S - This work means a lot to me
 
 A single-page support site: a guided breathing exercise, a short reminder that you're not alone, crisis lines for major European countries, and a few closing thoughts on the value of life.
 
