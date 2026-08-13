@@ -56,7 +56,7 @@ Plain HTML, CSS and JavaScript — no build step, no dependencies. One file, dro
 
 ## Running locally
 
-Just open `index.html` (or `index-en.html`) in a browser — no server required.
+Just open `index.html` in a browser — no server required.
 
 ## A note on the phone numbers
 
