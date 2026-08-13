@@ -1,7 +1,7 @@
 # You Are Not Alone
 
 ## A single-page support site: a guided breathing exercise, a short reminder that you're not alone, crisis lines for major European countries, and a few closing thoughts on the value of life. 
-P.S - This work means a lot t# You Are Not Alone
+P.S - This work means a lot to me
 
 A single-page support site: a guided breathing exercise, a short reminder that you're not alone, crisis lines for major European countries, and a few closing thoughts on the value of life.
 
@@ -36,17 +36,19 @@ Replace the placeholders below with your own screenshots:
 |---|---|
 | ![Hero section with breathing circle](screenshots/v1/hero.png) | ![Crisis lines by country](screenshots/v1/contacts.png) |
 
-### Version 2 — current
+### Version 2 — editorial redesign
+
+| Breathing exercise | Support lines |
+|---|---|
+| ![Hero section with breathing circle](screenshots/v3/hero.png) | ![Crisis lines by country](screenshots/v3/contacts.png) |
+
+### Version 3 — current Im working with
 
 | Breathing exercise | Support lines |
 |---|---|
 | ![Hero section with breathing circle](screenshots/v2/hero.png) | ![Crisis lines by country](screenshots/v2/contacts.png) |
 
-### Version 3 — editorial redesign
 
-| Breathing exercise | Support lines |
-|---|---|
-| ![Hero section with breathing circle](screenshots/v3/hero.png) | ![Crisis lines by country](screenshots/v3/contacts.png) |
 
 ## Tech
 
