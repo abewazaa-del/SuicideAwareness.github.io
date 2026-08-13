@@ -1,4 +1,3 @@
-[README (2).md](https://github.com/user-attachments/files/31019753/README.2.md)
 # You Are Not Alone
 
 ## A single-page support site: a guided breathing exercise, a short reminder that you're not alone, crisis lines for major European countries, and a few closing thoughts on the value of life. 
