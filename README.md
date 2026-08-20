@@ -71,3 +71,4 @@ o me, and I really hope that at least one person will be inspired by seeing it.
 - **A supportive message** — a short reminder that the visitor isn't alone and their feelings are valid
 - **Crisis lines by country** — free, confidential helplines for ~19 European countries, plus 112 and a fallback for countries not listed
 - **Closing quotes** — short reflections on the value of life
+- **5,4,3,2,1 - the minigame** - a simple sensory psychology's confirmed mindfulness game. It helps stop panic, stress, or racing thoughts by using your five senses to ground you in the present moment.
