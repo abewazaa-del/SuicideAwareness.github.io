@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>You are not alone — pause here for a moment</title>
 <meta name="description" content="A place to catch your breath. You are not alone, and your life matters.">
+<link rel="canonical" href="https://abewazaa-del.github.io/SuicideAwareness.github.io/index-en.html">
+<link rel="alternate" hreflang="en" href="https://abewazaa-del.github.io/SuicideAwareness.github.io/index-en.html">
+<link rel="alternate" hreflang="ru" href="https://abewazaa-del.github.io/SuicideAwareness.github.io/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="You are not alone — pause here for a moment">
+<meta property="og:description" content="A guided breathing exercise, a reminder that you're not alone, and free crisis lines across Europe.">
+<meta property="og:url" content="https://abewazaa-del.github.io/SuicideAwareness.github.io/index-en.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="You are not alone — pause here for a moment">
+<meta name="twitter:description" content="A guided breathing exercise, a reminder that you're not alone, and free crisis lines across Europe.">
+<meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -530,12 +541,202 @@
     .game-stage{display:none;}
     .game-static{display:block;}
   }
+
+  /* ---------- Top help nav ---------- */
+  .top-nav{
+    background:transparent;
+    border-bottom:none;
+    position:relative;
+  }
+  .nav-inner{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+    padding:14px 24px;
+  }
+  .nav-btn{
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--text-light);
+    padding:9px 18px;
+    border-radius:999px;
+    font-size:13.5px;
+    font-family:'Public Sans', sans-serif;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    transition:border-color .2s ease, background .2s ease, transform .15s ease;
+    white-space:nowrap;
+  }
+  .nav-btn:hover{
+    border-color:var(--accent-dawn);
+    background:rgba(242,166,90,0.08);
+    transform:translateY(-1px);
+  }
+
+  /* ---------- Modal ---------- */
+  .modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(10,14,30,0.74);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    z-index:200;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal-box{
+    background:var(--bg-mid);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    max-width:600px;
+    width:100%;
+    max-height:82vh;
+    overflow-y:auto;
+    padding:34px 30px 30px;
+    position:relative;
+    animation:modalIn .3s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes modalIn{
+    from{opacity:0;transform:translateY(14px) scale(.98);}
+    to{opacity:1;transform:translateY(0) scale(1);}
+  }
+  .modal-close{
+    position:absolute;
+    top:16px;
+    right:16px;
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--text-muted);
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:16px;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .modal-close:hover{color:var(--text-light);border-color:var(--accent-soft);}
+  .modal-box .eyebrow{margin-bottom:14px;}
+  .modal-box h2{font-size:clamp(22px,3vw,28px);margin-bottom:6px;padding-right:30px;}
+  .modal-box p.modal-intro{color:var(--text-muted);font-size:15px;margin:0 0 22px;}
+  .modal-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;}
+  .modal-list li{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    background:var(--bg-mid2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 16px;
+  }
+  .modal-list .m-ico{
+    flex:none;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:rgba(242,166,90,0.15);
+    color:var(--accent-dawn);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Fraunces', serif;
+    font-size:14px;
+    margin-top:1px;
+  }
+  .modal-list strong{color:var(--text-light);display:block;margin-bottom:2px;font-size:14.5px;}
+  .modal-list span{color:var(--text-muted);font-size:13.5px;}
+  .modal-footnote{
+    margin-top:22px;
+    font-size:13px;
+    color:var(--text-muted);
+    border-top:1px solid var(--line);
+    padding-top:16px;
+  }
+  .modal-footnote a{font-weight:600;}
+
+  /* ---------- Grounding exercise ---------- */
+  .ground{
+    background:var(--bg-deep);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .ground .wrap{max-width:640px;text-align:center;}
+  .ground h2{font-size:clamp(26px,3.6vw,36px);}
+  .ground p.lead-text{color:var(--text-muted);font-size:16px;max-width:520px;margin:0 auto 8px;}
+  .ground-card{
+    margin-top:36px;
+    background:var(--bg-mid2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:40px 30px;
+    min-height:210px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+  }
+  .ground-step-num{
+    font-family:'Fraunces', serif;
+    font-size:15px;
+    color:var(--accent-dawn);
+    letter-spacing:.04em;
+  }
+  .ground-step-title{
+    font-family:'Fraunces', serif;
+    font-size:24px;
+    color:var(--text-light);
+    max-width:440px;
+  }
+  .ground-step-sub{
+    font-size:14px;
+    color:var(--text-muted);
+    max-width:400px;
+  }
+  .ground-dots{
+    display:flex;
+    gap:8px;
+    margin-top:22px;
+    justify-content:center;
+  }
+  .ground-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--line);
+    transition:background .25s ease, transform .25s ease;
+  }
+  .ground-dot.active{background:var(--accent-dawn);transform:scale(1.3);}
+  .ground-controls{display:flex;gap:12px;align-items:center;justify-content:center;margin-top:24px;flex-wrap:wrap;}
+  .ground-done{display:none;}
+
 </style>
 </head>
 <body>
 
 <div class="safety-bar">
   If you are in immediate danger right now, call <strong>112</strong> (the emergency number across Europe) or your local emergency services.
+</div>
+
+<nav class="top-nav" aria-label="Quick help menu">
+  <div class="wrap nav-inner">
+    <button class="nav-btn" data-modal="modal-self">How can I help myself?</button>
+    <button class="nav-btn" data-modal="modal-others">How can I help someone I love?</button>
+    <button class="nav-btn" data-modal="modal-signs">Warning signs to notice</button>
+    <a href="#grounding" class="nav-btn">Try a grounding exercise</a>
+    <a href="#contacts" class="nav-btn">Find a helpline</a>
+  </div>
+</nav>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div id="modalContent"></div>
+  </div>
 </div>
 
 <header class="hero">
@@ -607,6 +808,28 @@
     <div class="game-controls reveal">
       <button class="primary-btn" id="gameToggle">Start popping</button>
       <span class="game-count" id="gameCount"></span>
+    </div>
+  </div>
+</section>
+
+<section class="ground" id="grounding">
+  <div class="wrap">
+    <div class="eyebrow reveal" style="justify-content:center;">A short grounding exercise</div>
+    <h2 class="reveal">5 · 4 · 3 · 2 · 1</h2>
+    <p class="lead-text reveal">A simple way to come back to the present moment. Take your time with each step — there's no rush.</p>
+
+    <div class="ground-card reveal" id="groundCard">
+      <div class="ground-step-num" id="groundNum">Step 1 of 5</div>
+      <div class="ground-step-title" id="groundTitle">Name 5 things you can see</div>
+      <div class="ground-step-sub" id="groundSub">Let your eyes move slowly around the room. Colours, shapes, small details — anything at all.</div>
+    </div>
+
+    <div class="ground-dots reveal" id="groundDots"></div>
+
+    <div class="ground-controls reveal">
+      <button class="ghost-btn" id="groundBack" style="display:none;">Back</button>
+      <button class="primary-btn" id="groundNext">Begin</button>
+      <button class="ghost-btn" id="groundReset" style="display:none;">Start over</button>
     </div>
   </div>
 </section>
@@ -1070,6 +1293,187 @@
   if(reduceMotion){
     toggleBtn.textContent = 'Show me a thought';
   }
+})();
+
+/* ---------- Help modals ---------- */
+(function(){
+  const overlay = document.getElementById('modalOverlay');
+  const contentEl = document.getElementById('modalContent');
+  const closeBtn = document.getElementById('modalClose');
+  let lastFocused = null;
+
+  const modals = {
+    'modal-self': {
+      eyebrow: 'For you, right now',
+      title: 'How can I help myself?',
+      intro: 'These are small, concrete things you can try right now — none of them fix everything, but each one can make the next few minutes a little more bearable.',
+      items: [
+        ['1', 'Tell someone, right now', 'A friend, a family member, or a helpline. You don\'t need the right words — "I\'m not okay" is enough.'],
+        ['2', 'Try the grounding exercise below', 'The 5-4-3-2-1 exercise on this page can help pull your mind back to the present moment.'],
+        ['3', 'Put some distance between you and any means of harm', 'Even a short delay — handing something to someone else, leaving the room — can matter.'],
+        ['4', 'Go where there are people', 'A kitchen, a living room, a public space. You don\'t have to talk, just not be alone.'],
+        ['5', 'Give it 24 hours', 'If you can, delay any big decision by a day. Feelings that feel permanent right now often aren\'t.'],
+        ['6', 'Do one small physical thing', 'Cold water on your face, a short walk, a few slow breaths using the exercise at the top of this page.'],
+      ],
+      footnote: 'If any of this feels like too much right now, scroll down to the support lines — someone is available to talk, day or night.'
+    },
+    'modal-others': {
+      eyebrow: 'For someone you care about',
+      title: 'How can I help someone I love?',
+      intro: 'If you\'re worried about someone, your concern already matters. Here\'s how to turn it into support without needing to have all the answers.',
+      items: [
+        ['1', 'Ask directly', 'It\'s safe to ask "Are you thinking about suicide?" plainly. It doesn\'t plant the idea — it usually brings relief that someone noticed.'],
+        ['2', 'Listen more than you talk', 'You don\'t need to fix it or find the perfect response. Let them speak without rushing to reassure or argue.'],
+        ['3', 'Take it seriously, always', 'Never promise to keep it a secret. Take what they say at face value, even if it seems out of character.'],
+        ['4', 'Help them reach support', 'Offer to sit with them while they call a helpline, or help them find a doctor or counsellor — doing it together lowers the barrier.'],
+        ['5', 'Reduce access to means where you can', 'If it\'s safe to do so, help create distance between them and anything they could use to harm themselves.'],
+        ['6', 'Don\'t leave them alone in a crisis', 'Stay with them, or arrange for someone else to, until immediate danger has passed.'],
+        ['7', 'Check in afterwards', 'A short message a few days later — "thinking of you" — tells them the concern wasn\'t a one-off.'],
+        ['8', 'Look after yourself too', 'Supporting someone through this is heavy. Talk to someone about how you\'re doing, and set boundaries where you need to.'],
+      ],
+      footnote: 'If you believe someone is in immediate danger, call 112 or your local emergency number — you don\'t have to handle this alone either.'
+    },
+    'modal-signs': {
+      eyebrow: 'Worth paying attention to',
+      title: 'Warning signs to notice',
+      intro: 'No single sign means someone is definitely at risk, but noticing a pattern — especially a change from how someone usually is — is worth acting on.',
+      items: [
+        ['·', 'Talking about wanting to die, or feeling like a burden', 'Even said as a joke, in passing, or online — take it seriously.'],
+        ['·', 'Withdrawing from people and activities', 'Pulling away from friends, family, or things they used to care about.'],
+        ['·', 'Giving away belongings or saying goodbye', 'Tying up loose ends in a way that feels final.'],
+        ['·', 'Big changes in sleep, mood, or energy', 'Sudden calm after a period of depression can also be a warning sign, not just improvement.'],
+        ['·', 'Increased use of alcohol or drugs', 'Using substances to cope more than usual.'],
+        ['·', 'Talking about feeling trapped or in unbearable pain', 'Language of "no way out" or "can\'t go on like this".'],
+      ],
+      footnote: 'If you notice several of these together, it\'s okay to ask directly and gently — see "How can I help someone I love?" for how to start that conversation.'
+    }
+  };
+
+  function renderModal(key){
+    const data = modals[key];
+    if(!data) return;
+    const items = data.items.map(([num, title, desc]) =>
+      `<li><span class="m-ico">${num}</span><div><strong>${title}</strong><span>${desc}</span></div></li>`
+    ).join('');
+    contentEl.innerHTML = `
+      <div class="eyebrow">${data.eyebrow}</div>
+      <h2 id="modalTitle">${data.title}</h2>
+      <p class="modal-intro">${data.intro}</p>
+      <ul class="modal-list">${items}</ul>
+      <p class="modal-footnote">${data.footnote}</p>
+    `;
+  }
+
+  function openModal(key){
+    lastFocused = document.activeElement;
+    renderModal(key);
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if(lastFocused) lastFocused.focus();
+  }
+
+  document.querySelectorAll('.nav-btn[data-modal]').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.getAttribute('data-modal')));
+  });
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => { if(e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+})();
+
+/* ---------- Grounding exercise (5-4-3-2-1) ---------- */
+(function(){
+  const card = document.getElementById('groundCard');
+  const numEl = document.getElementById('groundNum');
+  const titleEl = document.getElementById('groundTitle');
+  const subEl = document.getElementById('groundSub');
+  const dotsEl = document.getElementById('groundDots');
+  const nextBtn = document.getElementById('groundNext');
+  const backBtn = document.getElementById('groundBack');
+  const resetBtn = document.getElementById('groundReset');
+
+  const steps = [
+    { title: 'Name 5 things you can see', sub: 'Let your eyes move slowly around the room. Colours, shapes, small details — anything at all.' },
+    { title: 'Name 4 things you can touch', sub: 'Your sleeve, the chair, the floor under your feet. Notice the texture of each one.' },
+    { title: 'Name 3 things you can hear', sub: 'Nearby sounds, distant sounds, even the quiet itself.' },
+    { title: 'Name 2 things you can smell', sub: 'If nothing stands out, think of two smells you like.' },
+    { title: 'Name 1 thing you can taste', sub: 'Or simply notice the inside of your mouth right now.' },
+  ];
+
+  let idx = -1; // -1 = intro state
+
+  steps.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.className = 'ground-dot';
+    dotsEl.appendChild(dot);
+  });
+
+  function renderIntro(){
+    numEl.textContent = 'A moment for yourself';
+    titleEl.textContent = 'Five senses, one at a time';
+    subEl.textContent = 'Press "Begin" and go at your own pace. You can go back at any point.';
+    backBtn.style.display = 'none';
+    resetBtn.style.display = 'none';
+    nextBtn.style.display = 'inline-block';
+    nextBtn.textContent = 'Begin';
+    [...dotsEl.children].forEach(d => d.classList.remove('active'));
+  }
+
+  function renderStep(){
+    const s = steps[idx];
+    numEl.textContent = `Step ${idx + 1} of ${steps.length}`;
+    titleEl.textContent = s.title;
+    subEl.textContent = s.sub;
+    backBtn.style.display = 'inline-block';
+    resetBtn.style.display = 'none';
+    nextBtn.style.display = 'inline-block';
+    nextBtn.textContent = idx === steps.length - 1 ? 'Finish' : 'Next';
+    [...dotsEl.children].forEach((d, i) => d.classList.toggle('active', i === idx));
+  }
+
+  function renderDone(){
+    numEl.textContent = 'Well done';
+    titleEl.textContent = 'You just brought yourself back to right now';
+    subEl.textContent = 'That\'s the whole exercise. You can repeat it any time you need to.';
+    backBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
+    resetBtn.style.display = 'inline-block';
+    [...dotsEl.children].forEach(d => d.classList.add('active'));
+  }
+
+  nextBtn.addEventListener('click', () => {
+    if(idx < steps.length - 1){
+      idx += 1;
+      renderStep();
+    } else {
+      idx = steps.length;
+      renderDone();
+    }
+  });
+
+  backBtn.addEventListener('click', () => {
+    if(idx > 0){
+      idx -= 1;
+      renderStep();
+    } else {
+      idx = -1;
+      renderIntro();
+    }
+  });
+
+  resetBtn.addEventListener('click', () => {
+    idx = -1;
+    renderIntro();
+  });
+
+  renderIntro();
 })();
 </script>
 
