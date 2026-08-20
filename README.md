@@ -17,7 +17,7 @@ This project means a lot to me. It's also part of how I've been teaching myself 
 - **A supportive message** — a short reminder that the visitor isn't alone and their feelings are valid
 - **Crisis lines by country** — free, confidential helplines for ~19 European countries, plus 112 and a fallback for countries not listed
 - **Closing quotes** — short reflections on the value of life
-
+- **5,4,3,2,1 - the minigame** - a simple sensory psychology's confirmed mindfulness game. It helps stop panic, stress, or racing thoughts by using your five senses to ground you in the present moment.
 
 ## Screenshots
 
@@ -64,11 +64,3 @@ Helpline numbers were collected from official sources and may change over time. 
 o me, and I really hope that at least one person will be inspired by seeing it.
 
 🔗 **Live site:** https://abewazaa-del.github.io/SuicideAwareness.github.io/
-
-## What's on the page
-
-- **Breathing exercise** — an animated circle that guides inhale / hold / exhale, with a running count of completed cycles
-- **A supportive message** — a short reminder that the visitor isn't alone and their feelings are valid
-- **Crisis lines by country** — free, confidential helplines for ~19 European countries, plus 112 and a fallback for countries not listed
-- **Closing quotes** — short reflections on the value of life
-- **5,4,3,2,1 - the minigame** - a simple sensory psychology's confirmed mindfulness game. It helps stop panic, stress, or racing thoughts by using your five senses to ground you in the present moment.
