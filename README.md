@@ -65,4 +65,3 @@ o me, and I really hope that at least one person will be inspired by seeing it.
 
 🔗 **Always remember from now:** [You Are Not Alone](http://not-alone.living/)
 
-google-site-verification: google6f826bc59380ce17.html
