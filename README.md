@@ -4,7 +4,7 @@
 
 A single-page support site: a guided breathing exercise, a short reminder that you're not alone, crisis lines for major European countries, and a few closing thoughts on the value of life.
 
-🔗 **Live site:** https://abewazaa-del.github.io/SuicideAwareness.github.io/
+🔗 **Live site:** http://not-alone.living/ (OUT NOW: 20.08.2026)
 
 ## Why this project matters
 
@@ -63,4 +63,4 @@ Just open `index.html` in a browser — no server required.
 Helpline numbers were collected from official sources and may change over time. If one doesn't connect, try [findahelpline.com](https://findahelpline.com) or [befrienders.org](https://befrienders.org) for an up-to-date listing.
 o me, and I really hope that at least one person will be inspired by seeing it.
 
-🔗 **Always remember from now:** [You Are Not Alone](https://abewazaa-del.github.io/SuicideAwareness.github.io/)
+🔗 **Always remember from now:** [You Are Not Alone](http://not-alone.living/)
