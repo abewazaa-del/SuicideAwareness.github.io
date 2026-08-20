@@ -52,7 +52,7 @@ Replace the placeholders below with your own screenshots:
 
 ## Tech
 
-Plain HTML, CSS and JavaScript — no build step, no dependencies. One file, drop it in any static host.
+Plain HTML, CSS and JavaScript
 
 ## Running locally
 
@@ -71,15 +71,3 @@ o me, and I really hope that at least one person will be inspired by seeing it.
 - **A supportive message** — a short reminder that the visitor isn't alone and their feelings are valid
 - **Crisis lines by country** — free, confidential helplines for ~19 European countries, plus 112 and a fallback for countries not listed
 - **Closing quotes** — short reflections on the value of life
-
-## Tech
-
-Plain HTML, CSS and JavaScript — no build step, no dependencies. One file, drop it in any static host.
-
-## Running locally
-
-Just open `index.html` in a browser — no server required.
-
-## A note on the phone numbers
-
-Helpline numbers were collected from official sources and may change over time. If one doesn't connect, try [findahelpline.com](https://findahelpline.com) or [befrienders.org](https://befrienders.org) for an up-to-date listing.
